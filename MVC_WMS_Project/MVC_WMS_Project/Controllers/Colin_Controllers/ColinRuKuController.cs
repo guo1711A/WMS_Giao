@@ -12,5 +12,17 @@ namespace MVC_WMS_Project.Controllers.Colin_Controllers
         {
             return View();
         }
+        public IActionResult LianXiShow()
+        {
+            return View();
+        }
+        public IActionResult Add()
+        {
+            return View();
+        }
+        public IActionResult Update()
+        {
+            return View();
+        }
     }
 }

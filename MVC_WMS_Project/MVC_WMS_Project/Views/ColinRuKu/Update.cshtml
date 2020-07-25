@@ -1,0 +1,96 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+</head>
+<body>
+
+    <template>
+        <table>
+            <div>
+                <tr>
+
+                    商品名称：
+                    <input type="text" v-model="data.name" />     //通过data.xxx来获取数据
+                </tr>
+                <tr>
+                    商品名称：
+                    <input type="text" v-model="data.price" />
+                </tr>
+                <tr>
+                    商品名称：
+                    <input type="text" v-model="data.stock" />
+                </tr>
+                <button v-on:click="up">修改</button>
+            </div>
+        </table>
+    </template>
+
+    <script>
+    export default {
+            data() {
+                return {
+                    data: ""   //查出来的数据存入这里
+                };
+            },
+            onLoad: function (a) {  //获取前面传来的id
+                let id = a.id;
+                console.log(id);
+                let t = this;
+                wx.request({
+                    url: "http://www.laravel.com/api/show", //仅为示例，并非真实的接口地址
+                    data: {
+                        id: id
+                    },
+                    header: {
+                        "content-type": "application/json" // 默认值
+                    },
+                    success(res) {
+                        console.log(res.data);
+                        t.data = res.data;    //获取前面传来的id
+                    }
+                });
+            },
+            methods: {
+                up() {
+                    wx.request({
+                        url: "http://www.laravel.com/api/update", //仅为示例，并非真实的接口地址
+                        data: {
+                            id: this.data.id,        //获取要修改的这条数据的id
+                            name: this.data.name,         //获取要修改的这条数据的name    格式 this.data.xxx
+                            price: this.data.price,
+                            stock: this.data.stock
+                        },
+                        header: {
+                            "content-type": "application/json" // 默认值
+                        },
+                        success(res) {
+                            wx.showModal({
+                                title: '提示',
+                                content: '确认修改吗',
+                                success(res) {
+                                    if (res.confirm) {
+                                        wx.navigateTo({
+                                            url: "../shop/main"
+                                        });
+                                    } else if (res.cancel) {
+                                        console.log('用户点击取消')
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+        };
+    </script>
+
+</body>
+</html>

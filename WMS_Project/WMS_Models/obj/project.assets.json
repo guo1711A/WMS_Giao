@@ -1111,11 +1111,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\桌面\\WMS项目\\WMS_Projects\\WMS_Project\\WMS_Models\\WMS_Models.csproj",
+      "projectUniqueName": "E:\\桌面\\项目——Giao\\WMS_Giao\\WMS_Project\\WMS_Models\\WMS_Models.csproj",
       "projectName": "WMS_Models",
-      "projectPath": "E:\\桌面\\WMS项目\\WMS_Projects\\WMS_Project\\WMS_Models\\WMS_Models.csproj",
+      "projectPath": "E:\\桌面\\项目——Giao\\WMS_Giao\\WMS_Project\\WMS_Models\\WMS_Models.csproj",
       "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "E:\\桌面\\WMS项目\\WMS_Projects\\WMS_Project\\WMS_Models\\obj\\",
+      "outputPath": "E:\\桌面\\项目——Giao\\WMS_Giao\\WMS_Project\\WMS_Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "F:\\Microsoft\\Xamarin\\NuGet\\",

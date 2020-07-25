@@ -15,28 +15,38 @@ namespace WMS_Project.Controllers.Colin_Controllers
     {
         RuKuBusiness bll = new RuKuBusiness();
 
-        //入库查询  api/ruku/Search?name=RKD10003  
+        //入库查询  api/ruku/RKSearch?name=RKD10003  
         [HttpGet]
-        public List<WMS_Models.Pro_Models.PutStorageModel> Search(string name, string jlid, string sid)
+        public List<WMS_Models.CoLinModel.PutStorageModel> RkSearch(string name, string jlid, string sid)
         {
-            WMS_Models.Pro_Models.PutStorageModel m = new WMS_Models.Pro_Models.PutStorageModel { PuName = name, Jlid = jlid, Sid = sid };
+            WMS_Models.CoLinModel.PutStorageModel m = new WMS_Models.CoLinModel.PutStorageModel { PuName = name, JlName = jlid, SName = sid };
             return bll.Search(m);
         }
         //入库高级查询  api/ruku/searchs?name=rkd10003&jlid=8e7580bf56dc&sid=88707a9f5b37&punum=GYS202001&puname=华为科技
         [HttpGet]
-        public List<WMS_Models.Pro_Models.PutStorageModel> Searchs(string name, string jlid, string sid, string punum, string puname)
+        public List<WMS_Models.CoLinModel.PutStorageModel> RkSearchs(string name, string jlid, string sid, string punum, string puname)
         {
-            WMS_Models.Pro_Models.PutStorageModel m = new WMS_Models.Pro_Models.PutStorageModel { PuName = name, Jlid = jlid, Sid = sid, PuAuditNum = punum, PuSupplierName = puname };
+            WMS_Models.CoLinModel.PutStorageModel m = new WMS_Models.CoLinModel.PutStorageModel { PuName = name, JlName = jlid, SName = sid, PuAuditNum = punum, PuSupplierName = puname };
             return bll.Searchs(m);
-        } 
-
+        }  
         //显示入库表 api/ruku/RKShow
         [HttpGet]
         public List<WMS_Models.CoLinModel.PutStorageModel> RkShow()
         {
             return bll.RkShow();
         }
-
+        //显示入库类型 api/ruku/RKTShow
+        [HttpGet]
+        public List<RulibraryModel> RKTShow()
+        {
+            return bll.Show<RulibraryModel>();
+        }
+        //删除入库表 api/ruku/Delete
+        [HttpPost]
+        public int Delete(PutStorageModel id)
+        {
+            return bll.Delete(id);
+        }
         ////入库表分页
         //[HttpGet]
         //public ActionResult<PutStorageModel> Pager(int PageSize, int PageIndex)

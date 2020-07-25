@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+
+    <template>
+        <div>
+            <table>
+                <tr>
+                    <td>商品名称：</td> 
+                    <td> <input type="text" v-model="name" /></td>
+                   
+                </tr>
+                <tr>
+                    <td>商品名称：</td>
+                    <td> <input type="text" v-model="name" /></td>
+                </tr>
+                <tr>
+                    <td>商品名称：</td>
+                    <td> <input type="text" v-model="name" /></td>
+                </tr>
+                <tr>
+                    <td><button v-on:click="add">添加</button></td>
+                </tr>
+               
+            </table>
+        </div>
+    </template>
+    <script>
+    export default {
+            data() {
+                return {
+                    name: "",
+                    price: "",
+                    stock: ""
+                };
+            },
+            methods: {
+                add() {
+                    wx.request({
+                        url: "http://www.laravel.com/api/add", //仅为示例，并非真实的接口地址
+                        data: {
+                            name: this.name,
+                            price: this.price,
+                            stock: this.stock
+                        },
+                        header: {
+                            "content-type": "application/json" // 默认值
+                        },
+                        success(res) {
+                            wx.showToast({
+                                title: "成功",
+                                icon: "success",
+                                duration: 2000
+                            });
+                            wx.navigateTo({
+                                url: "../shop/main"
+                            });
+                            console.log(res.data);
+                        }
+                    });
+                }
+            }
+        };
+    </script>
+
+</body>
+</html>

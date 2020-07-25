@@ -1156,11 +1156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\桌面\\WMS项目\\WMS_Projects\\WMS_Project\\WMS_Business\\WMS_Business.csproj",
+      "projectUniqueName": "E:\\桌面\\项目——Giao\\WMS_Giao\\WMS_Project\\WMS_Business\\WMS_Business.csproj",
       "projectName": "WMS_Business",
-      "projectPath": "E:\\桌面\\WMS项目\\WMS_Projects\\WMS_Project\\WMS_Business\\WMS_Business.csproj",
+      "projectPath": "E:\\桌面\\项目——Giao\\WMS_Giao\\WMS_Project\\WMS_Business\\WMS_Business.csproj",
       "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "E:\\桌面\\WMS项目\\WMS_Projects\\WMS_Project\\WMS_Business\\obj\\",
+      "outputPath": "E:\\桌面\\项目——Giao\\WMS_Giao\\WMS_Project\\WMS_Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "F:\\Microsoft\\Xamarin\\NuGet\\",
@@ -1183,11 +1183,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "E:\\桌面\\WMS项目\\WMS_Projects\\WMS_Project\\WMS_DataAccess\\WMS_DataAccess.csproj": {
-              "projectPath": "E:\\桌面\\WMS项目\\WMS_Projects\\WMS_Project\\WMS_DataAccess\\WMS_DataAccess.csproj"
+            "E:\\桌面\\项目——Giao\\WMS_Giao\\WMS_Project\\WMS_DataAccess\\WMS_DataAccess.csproj": {
+              "projectPath": "E:\\桌面\\项目——Giao\\WMS_Giao\\WMS_Project\\WMS_DataAccess\\WMS_DataAccess.csproj"
             },
-            "E:\\桌面\\WMS项目\\WMS_Projects\\WMS_Project\\WMS_Models\\WMS_Models.csproj": {
-              "projectPath": "E:\\桌面\\WMS项目\\WMS_Projects\\WMS_Project\\WMS_Models\\WMS_Models.csproj"
+            "E:\\桌面\\项目——Giao\\WMS_Giao\\WMS_Project\\WMS_Models\\WMS_Models.csproj": {
+              "projectPath": "E:\\桌面\\项目——Giao\\WMS_Giao\\WMS_Project\\WMS_Models\\WMS_Models.csproj"
             }
           }
         }

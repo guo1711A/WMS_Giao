@@ -82,3 +82,17 @@ E:\桌面\WMS项目\WMS_Projects\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.
 E:\桌面\WMS项目\WMS_Projects\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.1\WMS_Business.csproj.CopyComplete
 E:\桌面\WMS项目\WMS_Projects\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.1\WMS_Business.dll
 E:\桌面\WMS项目\WMS_Projects\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.1\WMS_Business.pdb
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\bin\Debug\netcoreapp3.1\WMS_Business.deps.json
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\bin\Debug\netcoreapp3.1\WMS_Business.dll
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\bin\Debug\netcoreapp3.1\WMS_Business.pdb
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\bin\Debug\netcoreapp3.1\WMS_DataAccess.dll
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\bin\Debug\netcoreapp3.1\WMS_Models.dll
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\bin\Debug\netcoreapp3.1\WMS_DataAccess.pdb
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\bin\Debug\netcoreapp3.1\WMS_Models.pdb
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.1\WMS_Business.csprojAssemblyReference.cache
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.1\WMS_Business.csproj.CoreCompileInputs.cache
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.1\WMS_Business.AssemblyInfoInputs.cache
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.1\WMS_Business.AssemblyInfo.cs
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.1\WMS_Business.csproj.CopyComplete
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.1\WMS_Business.dll
+E:\桌面\项目——Giao\WMS_Giao\WMS_Project\WMS_Business\obj\Debug\netcoreapp3.1\WMS_Business.pdb

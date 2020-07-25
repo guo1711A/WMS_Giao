@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TzuENUpte4yZOXoLwpDWxddXQGkE7RUH8v27FnPo/BM2ovHjckFoQdf+q+9NeK7jiR4c0hixoENyWUUI3YT31g==",
+  "dgSpecHash": "WWh6fz4fEQm/3TuY4mgeKseGBlx7EuRy92s2yIWoEHo5+KPou7U+WmKMu6rGA2R8Oii21V0t+YBwZyT6mmD4Eg==",
   "success": true,
-  "projectFilePath": "E:\\桌面\\WMS项目\\WMS_Projects\\MVC_WMS_Project\\MVC_WMS_Project\\MVC_WMS_Project.csproj",
+  "projectFilePath": "E:\\桌面\\项目——Giao\\WMS_Giao\\MVC_WMS_Project\\MVC_WMS_Project\\MVC_WMS_Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
@@ -110,7 +110,9 @@
     "C:\\Users\\lenovo\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.3\\system.threading.tasks.extensions.4.5.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\vue\\2.6.11\\vue.2.6.11.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\vue-resource\\1.3.4\\vue-resource.1.3.4.nupkg.sha512"
   ],
   "logs": []
 }

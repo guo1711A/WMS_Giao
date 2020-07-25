@@ -42,7 +42,7 @@ namespace WMS_Project.Controllers.Colin_Controllers
         {
             return bll.Show<PackagingTypeModel>();
         }
-        //显示状态
+        //显示状态  //api/default/ZTShow 
         [HttpGet]
         public List<StateModel> ZTShow()
         {
@@ -85,6 +85,7 @@ namespace WMS_Project.Controllers.Colin_Controllers
         {
             return bll.Delete(id);
         }
+       
         //添加产品表
         [HttpPost]
         public int Add(ProductsTBModel m)

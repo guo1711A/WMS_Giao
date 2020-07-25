@@ -45,6 +45,8 @@ namespace WMS_Models.CoLinModel
 		public string JlName { get; set; }
 		//状态表
 		public string SName { get; set; }
+		//规格表
+		public string SpName { get; set; }
 
 	}
 }

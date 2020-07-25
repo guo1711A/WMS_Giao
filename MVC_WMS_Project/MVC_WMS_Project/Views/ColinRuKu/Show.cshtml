@@ -7,31 +7,39 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Show</title>
+    <link href="~/css/changku.css" rel="stylesheet" />
     <link href="~/css/bootstrap.css" rel="stylesheet" />
     <script src="~/js/axios.js"></script>
     <script src="~/js/Vue.js"></script>
 </head>
 <body>
-    <h1>Show</h1>
-    <div class="div1">
+    <div id="app">
+        <div id="div1">
+            <div id="div2"></div>
+            <span id="h3_1"><b>入库管理</b></span>
+        </div>
         <div id="div1">
             <div>
-                <label>数据筛选</label>
-                <a href="#">高级搜索</a>
+                <label id="c1">数据筛选</label>
+                <a href="#" id="c2">高级搜索</a>
             </div>
             <hr />
-            <div>
-                <label>入库单号:</label><input id="DingDan" type="text" placeholder="请输入单号" />
+            <div id="searchs">
+                <label>入库单号:</label>
+                <input v-model="dingDan" type="text" placeholder="请输入单号" />
                 <label>入库类型:</label>
-                <select id="LeiXing">
-                    <option>请选择</option>
+                <select v-modle="leiXing" v-on:change="ruType($event)">
+                    <option value="">请选择</option>
+                    <option v-for="(row,index) in info1" :key="index" :value="row.jlid">{{row.jlName}}</option>
                 </select>
                 <label>入库状态:</label>
-                <select id="ZhuangTai">
-                    <option>请选择</option>
+                <select v-modle="zhuangTai" v-on:change="ruState($event)">
+                    <option value="">请选择</option>
+                    <option v-for="(row,index) in info2" :key="index" :value="row.sid">{{row.sName}}</option>
                 </select>
-                <input id="search" type="button" value="查询" />
-                <input id="congzhi" type="button" value="重置" />
+                <button v-on:click="search">查询</button>
+
+                <input id="congzhi" type="button" value="重置"/>
             </div>
             <hr />
             <div>
@@ -41,10 +49,10 @@
                 <input id="del" type="button" value="删除" />
                 <input id="show" type="button" value="刷新" />
                 <input id="daochu" type="button" value="导出" />
-                <table id="app" class="table table-bordered ">
+                <table class="table table-bordered ">
                     <thead>
                         <tr>
-                            <td><input id="Quan" type="checkbox" /></td>
+                            <td><input id="xuan" type="checkbox" /></td>
                             <td>订单号</td>
                             <td>产品名称</td>
                             <td>产品编号</td>
@@ -63,7 +71,7 @@
                     </thead>
                     <tbody v-for="row in info">
                         <tr>
-                            <td><input id="Checkbox1" type="checkbox" /></td>
+                            <td><input id="Check" type="checkbox" /></td>
                             <td>{{row.puName}}</td>
                             <td>{{row.prName}}</td>
                             <td>{{row.prNumber}}</td>
@@ -77,37 +85,118 @@
                             <td>{{row.sName}}</td>
                             <td>{{row.puAudit}}</td>
                             <td>{{row.puAuditTime}}</td>
-                            <td><a href="#">查看</a>&nbsp;&nbsp;<a href="#">编辑</a>&nbsp;&nbsp;<a href="#">删除</a>&nbsp;&nbsp;<a href="#">打印</a></td>
+                            <td><a href="#">查看</a>&nbsp;&nbsp;<a href="#">编辑</a>&nbsp;&nbsp;<a v-on:click="Del(row.puid)">删除</a>&nbsp;&nbsp;<a href="#">打印</a></td>
 
                         </tr>
                     </tbody>
                 </table>
+                <input id="quan" type="checkbox" />全选
+                <input id="fan" type="checkbox" />反选
             </div>
+
 
 
         </div>
     </div>
-    <script>
 
+    <script>
         var vue = new Vue({
             el: '#app',
             data() {
                 return {
-                    info: null
+                    info: null,
+                    info1: [],
+                    info2: [],
+                    dingDan: "",
+                    leiXing: "",
+                    zhuangTai: "",
                 }
             },
-            mounted() {
+            mounted: function () {
+                //显示主体
                 this.show();
+                //显示入库类型
+                this.Type();
+                //显示状态
+                this.state(); 
             },
             methods: {
+                //show: function () {
+                //    axios
+                //        .get('http://localhost:57059/api/ruku/RKShow')
+                //        .then(Response => (this.info = Response.data))
+                //},
+                //显示主体
                 show: function () {
-                    axios
-                        .get('http://localhost:57059/api/ruku/RKShow')
-                        .then(Response => (this.info = Response.data))
-                }
-            }
-        });
+                    axios({
+                        method: "get",
+                        url: "http://localhost:57059/api/ruku/RKShow",
+                    }).then((res => (this.info = res.data)))
+                },
+                //show: function () {   //调用show这个方法
+                //    let t = this;
+                //    axios({
+                //        url: "http://localhost:57059/api/ruku/RKShow", //仅为示例，并非真实的接口地址
+                //        method: "get",
+                //        data: {},
+                //        header: {
+                //            "content-type": "application/json" // 默认值
+                //        },
+                //        success(res) {
+                //            console.log(res.data);
+                //            t.info = res.data;        //把数据存入name中
+                //        }
+                //    });
+                //},
 
+                //显示入库类型
+                Type: function () {
+                    axios
+                        .get('http://localhost:57059/api/ruku/RKTShow')
+                        .then(Response => (this.info1 = Response.data))
+                },
+                //显示状态
+                state: function () {
+                    axios
+                        .get('http://localhost:57059/api/default/ZTShow')
+                        .then(Response => (this.info2 = Response.data))
+                },
+                //checkAll() {
+                //    this.info.forEach(row => {
+                //        row.checked = true;
+                //    });
+
+                //    // this.checkArr = this.checkArr.map(item => item = true);
+                //},
+                //checkAnti() {
+                //    this.info.forEach(item => {
+                //        item.checked = !item.checked;
+                //    });
+                //},
+                //获取下拉框id
+                ruType(event) { 
+                    this.leiXing = event.target.value; 
+                },
+                 //获取下拉框id
+                ruState(event) {
+                    this.zhuangTai = event.target.value; 
+                },
+                //查询
+                search: function () { 
+                    axios({
+                        method: "get",
+                        url: "http://localhost:57059/api/ruku/RKSearch?name=" + this.dingDan + "&jlid=" + this.leiXing + "&sid=" + this.zhuangTai,
+                    }).then((res => (this.info = res.data)))
+                },
+                //删除
+                Del: function () {
+                    axios
+                        .get('http://localhost:57059/api/ruku/Delete?id=' + this.puid)
+                        .then(Response => (this.info = Response.data))
+                },
+
+            },
+        });
     </script>
 </body>
 </html>
