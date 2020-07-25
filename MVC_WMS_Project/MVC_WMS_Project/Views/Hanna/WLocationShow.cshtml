@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "WLocationShow";
+}
+
+<h5>仓库信息展示</h5>
+<h6>数据筛选</h6>
+<div id="wlocation">
+    <div>
+        @*编号文本框*@
+        库位编号:
+        <input v-model="message" placeholder="请输入库位编号" id="wlNum">&nbsp;&nbsp;&nbsp;
+        @*仓库名称文本框*@
+        仓库名称:
+        <input v-model="message" placeholder="请输入库位名称" id="wlName">&nbsp;&nbsp;&nbsp;
+        @*仓库类型下拉框*@
+        仓库:
+        <select v-model="waretypeselect" v-on:change="warenamebind($event)">
+            <option value=0>请选择</option>
+            <option v-for="(item,index) in typelists" :key="index" :value="item.warehouse_ID">
+                {{item.warehouse_Name }}
+            </option>
+        </select>&nbsp;&nbsp;&nbsp;
+
+        @* 查询按钮 *@
+        <button v-on:click="btnSelect">◷查询</button>&nbsp;&nbsp;&nbsp;
+        @* 重置按钮 *@
+        <button v-on:click="btnBack">§重置</button>&nbsp;&nbsp;&nbsp;
+    </div>
+    <hr />
+    <hr />
+    <div>
+        <span style="font-weight:600">数据列表</span>
+        <div style="float:right">
+            @* 新增按钮 *@
+            <button v-on:click="btnAddWL">➕新增</button>&nbsp;&nbsp;&nbsp;
+            @* 编辑按钮 *@
+            <button v-on:click="btnEditWL">📄编辑</button>&nbsp;&nbsp;&nbsp;
+            @* 删除按钮 *@
+            <button v-on:click="btnDeleteWL">✘删除</button>&nbsp;&nbsp;&nbsp;
+            @* 刷新按钮 *@
+            <button v-on:click="btnRefleshWL">⇵刷新</button>&nbsp;&nbsp;&nbsp;
+            @* 导出按钮 *@
+            <button v-on:click="btnCheckWL">↑导出</button>&nbsp;&nbsp;&nbsp;
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>库位编号</td>
+                    <td>库位名称</td>
+                    <td>仓库</td>
+                    <td>是否禁用</td>
+                    <td>创建时间</td>
+                    <td>备注</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody v-for="m in item">
+                <tr>
+                    <td>{{m.wLocation_Num}}</td>
+                    <td>{{m.wLocation_Name}}</td>
+                    <td>{{m.wLocationType_Name}}</td>
+                    <td>{{m.warehouse_Name}}</td>
+                    <td>{{m.wLocation_IsUse}}</td>
+                    <td>{{m.wLocation_Ctime}}</td>
+                    <td>操作</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

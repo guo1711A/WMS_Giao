@@ -54,7 +54,8 @@ namespace WMS_Business.Hanna_Buniness
             return dal.GetOneList<DepartmentTBModel>().ToList();
         }
         #endregion
-        #region 单表查询  下拉框绑定  仓库管理  仓库部门类型
+
+        #region 多表联查  仓库管理 多条件查询仓库信息
         /// <summary>
         /// 仓库管理信息查询
         /// </summary>
@@ -65,7 +66,26 @@ namespace WMS_Business.Hanna_Buniness
         /// <returns></returns>
         List<WarehouseModelAll> IBLL.warehouseModelSelectShow(string warenum, string warename, string waredep, string waretype)
         {
-            string sql = $"";
+            string sql = $"select a.Warehouse_Num,a.Warehouse_Name,a.Warehouse_Ctime,b.WarehouseType_Name,c.DepartmentName,a.Warehouse_IsUse,a.Warehouse_Address,a.Warehouse_Area,a.Warehouse_Manager,a.Warehouse_ManagerPhone from WarehouseTB a join WarehouseType b on a.Warehouse_TypeID = b.WarehouseType_ID join DepartmentTB c on a.Warehouse_DepartID = c.Id where 1=1";
+            //判断仓库编号是否为空
+            if (!string.IsNullOrEmpty(warenum))
+            {
+                sql += $" and a.Warehouse_Num='" + warenum + "'";
+            }
+            //判断仓库名称是否为空
+            if (!string.IsNullOrEmpty(warename))
+            {
+                sql += $" and a.Warehouse_Name='" + warename + "'";
+            }
+            if (!string.IsNullOrEmpty(waredep))
+            {
+                sql += $" and b.WarehouseType_Name='" + waredep + "'";
+            }
+            if (!string.IsNullOrEmpty(waretype))
+            {
+                sql += $" and c.DepartmentName='" + waretype + "'";
+            }
+            return dal.GetAllList<WarehouseModelAll>(sql).ToList();
         }
         #endregion
     }

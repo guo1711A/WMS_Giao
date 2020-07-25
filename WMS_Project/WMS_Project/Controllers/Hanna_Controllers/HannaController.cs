@@ -61,6 +61,14 @@ namespace WMS_Project.Controllers.Hanna_Controllers
         }
         #endregion
 
+        #region 多表联查  仓库管理 多条件查询仓库信息
+        [HttpGet]
+        [Route("wareselect")]
+        public List<WMS_Models.HannaModel.WarehouseModelAll> warehouseModelSelectShow(string warenum, string warename, string waredep, string waretype)
+        {
+            return bll.warehouseModelSelectShow(warenum, warename, waredep, waretype);
+        }
+        #endregion
 
 
 

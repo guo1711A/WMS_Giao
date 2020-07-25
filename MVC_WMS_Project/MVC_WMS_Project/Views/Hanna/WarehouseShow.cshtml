@@ -6,7 +6,7 @@
 <script src="~/js/axios.js"></script>
 <h5>仓库信息展示</h5>
 <h6>数据筛选</h6>
-<div id="warehouse">
+<div id="warehouselocation">
     <div>
         @*编号文本框*@
         编号:
@@ -42,15 +42,15 @@
         <span style="font-weight:600">数据列表</span>
         <div style="float:right">
             @* 新增按钮 *@
-            <button v-on:click="btnAddWare">➕新增</button>&nbsp;&nbsp;&nbsp;
+            <button v-on:click="btnAddWL">➕新增</button>&nbsp;&nbsp;&nbsp;
             @* 编辑按钮 *@
-            <button v-on:click="btnEditWare">📄编辑</button>&nbsp;&nbsp;&nbsp;
+            <button v-on:click="btnEditWL">📄编辑</button>&nbsp;&nbsp;&nbsp;
             @* 删除按钮 *@
-            <button v-on:click="btnDeleteWare">✘删除</button>&nbsp;&nbsp;&nbsp;
+            <button v-on:click="btnDeleteWL">✘删除</button>&nbsp;&nbsp;&nbsp;
             @* 刷新按钮 *@
-            <button v-on:click="btnRefleshWare">⇵刷新</button>&nbsp;&nbsp;&nbsp;
+            <button v-on:click="btnRefleshWL">⇵刷新</button>&nbsp;&nbsp;&nbsp;
             @* 导出按钮 *@
-            <button v-on:click="btnAddWare">↑导出</button>&nbsp;&nbsp;&nbsp;
+            <button v-on:click="btnCheckWL">↑导出</button>&nbsp;&nbsp;&nbsp;
         </div>
 
         <table class="table">
@@ -92,14 +92,12 @@
 <script>
     //仓库信息展示
     new Vue({
-        el: '#warehouse',
+        el: '#warehouselocation',
         data() {
             return {
                 item: null,
                 typelists: [],
                 waretypeselect: 0,
-                waredepselect: 0,
-                deplists: [],
             }
         },
         mounted: function () {
@@ -107,8 +105,6 @@
             this.wareShow();
             //仓库类型信息绑定
             this.typeBind();
-            //部门类型信息绑定
-            this.depBind();
         },
         methods: {
             //仓库信息展示
@@ -127,16 +123,6 @@
             },
             waretypebind(event) {
                 this.waretypeselect = event.target.value;
-            },
-            //部门信息绑定
-            depBind: function () {
-                axios({
-                    method: "get",
-                    url: "http://localhost:57059/api/waredepbind",
-                }).then((res => (this.deplists = res.data)))
-            },
-            waredepbind(event) {
-                this.waredepselect = event.target.value;
             },
 
         }

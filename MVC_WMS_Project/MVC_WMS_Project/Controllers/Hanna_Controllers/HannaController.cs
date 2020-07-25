@@ -16,5 +16,9 @@ namespace MVC_WMS_Project.Controllers.Hanna_Controllers
         {
             return View();
         }
+        public IActionResult WLocationShow()
+        {
+            return View();
+        }
     }
 }
