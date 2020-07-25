@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewData["Title"] = "WarehouseShow";
+}
+<script src="~/js/Vue.js"></script>
+<script src="~/js/axios.js"></script>
+<h5>仓库信息展示</h5>
+<h6>数据筛选</h6>
+<div id="warehouse">
+    <div>
+        @*编号文本框*@
+        编号:
+        <input v-model="message" placeholder="请输入仓库编号" id="wareNum">&nbsp;&nbsp;&nbsp;
+        @*仓库名称文本框*@
+        仓库名称:
+        <input v-model="message" placeholder="请输入仓库名称" id="wareName">&nbsp;&nbsp;&nbsp;
+        @*仓库类型下拉框*@
+        仓库类型:
+        <select v-model="waretypeselect" v-on:change="waretypebind($event)">
+            <option value=0>请选择</option>
+            <option v-for="(item,index) in typelists" :key="index" :value="item.warehouseType_ID">
+                {{item.warehouseType_Name }}
+            </option>
+        </select>&nbsp;&nbsp;&nbsp;
+        @*部门下拉框*@
+        部门:
+        <select v-model="waredepselect" v-on:change="waredepbind($event)">
+            <option value=0>请选择</option>
+            <option v-for="(item,index) in deplists" :key="index" :value="item.id">
+                {{item.departmentName}}
+            </option>
+        </select>
+
+        @* 查询按钮 *@
+        <button v-on:click="btnSelect">◷查询</button>&nbsp;&nbsp;&nbsp;
+        @* 重置按钮 *@
+        <button v-on:click="btnBack">§重置</button>&nbsp;&nbsp;&nbsp;
+    </div>
+    <hr />
+    <hr />
+    <div>
+        <span style="font-weight:600">数据列表</span>
+        <div style="float:right">
+            @* 新增按钮 *@
+            <button v-on:click="btnAddWare">➕新增</button>&nbsp;&nbsp;&nbsp;
+            @* 编辑按钮 *@
+            <button v-on:click="btnEditWare">📄编辑</button>&nbsp;&nbsp;&nbsp;
+            @* 删除按钮 *@
+            <button v-on:click="btnDeleteWare">✘删除</button>&nbsp;&nbsp;&nbsp;
+            @* 刷新按钮 *@
+            <button v-on:click="btnRefleshWare">⇵刷新</button>&nbsp;&nbsp;&nbsp;
+            @* 导出按钮 *@
+            <button v-on:click="btnAddWare">↑导出</button>&nbsp;&nbsp;&nbsp;
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>仓库编号</td>
+                    <td>仓库名称</td>
+                    <td>租赁时间</td>
+                    <td>仓库类型</td>
+                    <td>所属部门</td>
+                    <td>是否禁用</td>
+                    <td>地址</td>
+                    <td>面积</td>
+                    <td>联系人</td>
+                    <td>电话</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody v-for="m in item">
+                <tr>
+                    <td>{{m.warehouse_Num}}</td>
+                    <td>{{m.warehouse_Name}}</td>
+                    <td>{{m.warehouse_Ctime}}</td>
+                    <td>{{m.warehouseType_Name}}</td>
+                    <td>{{m.departmentName}}</td>
+                    <td>{{m.warehouse_IsUse}}</td>
+                    <td>{{m.warehouse_Address}}</td>
+                    <td>{{m.warehouse_Area}}</td>
+                    <td>{{m.warehouse_Manager}}</td>
+                    <td>{{m.warehouse_ManagerPhone}}</td>
+                    <td>操作</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script>
+    //仓库信息展示
+    new Vue({
+        el: '#warehouse',
+        data() {
+            return {
+                item: null,
+                typelists: [],
+                waretypeselect: 0,
+                waredepselect: 0,
+                deplists: [],
+            }
+        },
+        mounted: function () {
+            //仓库信息展示
+            this.wareShow();
+            //仓库类型信息绑定
+            this.typeBind();
+            //部门类型信息绑定
+            this.depBind();
+        },
+        methods: {
+            //仓库信息展示
+            wareShow: function () {
+                axios({
+                    method: "get",
+                    url: "http://localhost:57059/api/wareallshow",
+                }).then((res => (this.item = res.data)))
+            },
+            //仓库类型信息绑定
+            typeBind: function () {
+                axios({
+                    method: "get",
+                    url: "http://localhost:57059/api/waretypebind",
+                }).then((res => (this.typelists = res.data)))
+            },
+            waretypebind(event) {
+                this.waretypeselect = event.target.value;
+            },
+            //部门信息绑定
+            depBind: function () {
+                axios({
+                    method: "get",
+                    url: "http://localhost:57059/api/waredepbind",
+                }).then((res => (this.deplists = res.data)))
+            },
+            waredepbind(event) {
+                this.waredepselect = event.target.value;
+            },
+
+        }
+    })
+</script>
+
+
+
+
+
+
+
+
+
+

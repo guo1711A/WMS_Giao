@@ -27,6 +27,10 @@ namespace WMS_Project
         {
             services.AddCors(option => option.AddPolicy("mycors", p => p.AllowAnyOrigin()));
             services.AddSingleton<IDA, SqlDbHelper>();
+            //Hanna的DAL接口实现
+            services.AddSingleton<WMS_DataAccess.Hanna_DataAccess.IDAL,WMS_DataAccess.Hanna_DataAccess.DALSqlHelper>();
+            //Hanna的BLL接口实现
+            services.AddSingleton<WMS_Business.Hanna_Buniness.IBLL, WMS_Business.Hanna_Buniness.Business>();
             services.AddControllers();
         }
 

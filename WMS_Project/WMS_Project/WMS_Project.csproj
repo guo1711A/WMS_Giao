@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\Nick_Controllers\" />
-    <Folder Include="Controllers\Hanna_Controllers\" />
   </ItemGroup>
 
 

@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Hanna_Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\Login\css\style.css" />
     <None Include="wwwroot\Login\fonts\Nunito-Light.ttf" />
     <None Include="wwwroot\Login\images\1.jpg" />

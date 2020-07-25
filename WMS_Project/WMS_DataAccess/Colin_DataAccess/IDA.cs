@@ -5,7 +5,8 @@ using System.Text;
 namespace WMS_DataAccess.Colin_DataAccess
 {
     public interface IDA
-    {//添加
+    {
+        //添加
         int Add<T>(T t) where T : class, new();
         //反射显示
         List<T> Show<T>() where T : class, new();
